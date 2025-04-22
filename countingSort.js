@@ -1,12 +1,10 @@
 function countingSort(arr, maxValue) {
-    let count = new Array(maxValue + 1).fill(0); // Initialize a count array
+    let count = new Array(maxValue + 1).fill(0); 
     
-    // Count the occurrences of each element in the input array
     for (let num of arr) {
         count[num]++;
     }
     
-    // Build the sorted array by iterating through the count array
     let sortedArray = [];
     for (let i = 0; i < count.length; i++) {
         while (count[i] > 0) {
