@@ -68,10 +68,6 @@ console.log("Concatenated:", newArr);
 const nested = [1, [2, [3]]];
 console.log("Flattened:", nested.flat(2));
 
-// fill - Fill with value
-const filled = new Array(4).fill("x");
-console.log("Filled array:", filled);
-
 // toString - Convert to string
 console.log("Array to string:", arr.toString());
 
