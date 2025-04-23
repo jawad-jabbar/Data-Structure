@@ -4,8 +4,8 @@ let a = {
     address: { city: "Lahore" }
 }
 
-// let b = {...a}
-let b = structuredClone(a)
+let b = {...a};
+// let b = structuredClone(a)
 b.address.city = "Karachi"
 
 
