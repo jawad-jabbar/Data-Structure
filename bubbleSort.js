@@ -2,9 +2,26 @@ const bubbleSort = (arr) => {
   let swapped;
   do {
     swapped = false;
+    const isNumeric = (val) => !isNaN(Number(val));
     for (let i = 0; i < arr.length - 1; i++) {
       // if (String(arr[i]) > String(arr[i + 1])) {
-        if (arr[i] > arr[i + 1]){
+      //   // if (arr[i] > arr[i + 1]){
+      //   let temp = arr[i];
+      //   arr[i] = arr[i + 1];
+      //   arr[i + 1] = temp;
+      //   swapped = true;
+      // }
+      let swap = false;
+      if (isNumeric(arr[i]) && isNumeric(arr[i+1])){
+        if(Number(arr[i])> Number(arr[i+1])){
+          swap = true
+        }
+      } else {
+        if(String(arr[i])>String(arr[i+1])){
+          swap = true
+        }
+      }
+      if(swap){
         let temp = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
@@ -15,7 +32,7 @@ const bubbleSort = (arr) => {
 }
 
 // const arr = ["b","r" , "m", "a", "o"]
-const arr = [10, 3, 'b', -1, 'd', -5, 'a', 'c', 18];
+const arr = [10, '3', 'b', '-1', 'd', -5, 'a', 'c',"2e10", 18, "13", "9"];
 // const num = arr.filter(element => typeof element === 'number');
 // const alphabets = arr.filter(element => typeof element === 'string');
 // console.log(arr.sort())
