@@ -1,6 +1,5 @@
 const countChar = (arr) => {
   const count = {};
-
   for (const str of arr) {
     for (const char of str) {
       if (count[char] === undefined) {
@@ -10,7 +9,6 @@ const countChar = (arr) => {
       }
     }
   }
-
   return count;
 }
 
