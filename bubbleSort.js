@@ -1,6 +1,6 @@
 const arr = [10, 3, -1, -5, 18, 13, 24, 105];
 
-function bubbleSortDoWhile(arr) {
+const bubbleSortDoWhile = (arr) => {
   let swapped;
   do {
     swapped = false;

@@ -2,7 +2,7 @@ function isNumeric(val) {
   return !isNaN(val);
 }
 
-function bubbleSort(arr) {
+const bubbleSort = (arr) => {
   let swapped;
   do {
     swapped = false;
