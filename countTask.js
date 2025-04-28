@@ -12,7 +12,9 @@ const countChar = (arr) => {
   return count;
 }
 
+const arr = ['I want to be a Backend Developer and I am working on it']
 // const arr = ['a']
-const arr = ['apple','banana','candle','duck']
+// const arr = ['apple']
+// const arr = ['apple','banana','candle','duck']
 // const arr = ["a", "p", "p", "l", "e"];
 console.log(countChar(arr));
