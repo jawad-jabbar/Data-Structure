@@ -1,1 +1,0 @@
-// Find longest palindrom substring.
