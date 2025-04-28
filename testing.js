@@ -20,6 +20,8 @@ const findSubarrayWithSum = (arr, target) => {
     return null; // Return null if no subarray is found
 }
 
-const arr = [1, 4, 20, 3, 10, 5];
+// const arr = [1, 4, 20, 3, 10, 5];
+// let sortedArr = arr.sort(((a, b)=>{return a-b}))
+const arr = [1,3,20,10,4,5]
 const target = 33;
 console.log(findSubarrayWithSum(arr, target));  // Output: [20, 3, 10]
