@@ -1,0 +1,5 @@
+// Find longest substring without repeating characters.
+// Find sub array with the given sum
+// check string palandrom (Done)
+// Find longest palindrom substring.
+// Merge two sorted array and sum their elements based on index. (Done)
