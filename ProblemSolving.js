@@ -1,31 +1,51 @@
 // Find longest substring without repeating characters.
 
+let longestSubstring = (str) => {
+    let charMap = {}; 
+    let maxLength = 0;
+    let left = 0; 
+
+    for (let right = 0; right < str.length; right++) {
+        const currentChar = str[right];
+        if (charMap[currentChar] !== undefined && charMap[currentChar] >= left) {
+            left = charMap[currentChar] + 1; 
+        }
+        charMap[currentChar] = right; 
+        maxLength = Math.max(maxLength, right - left + 1); 
+    }
+
+    return maxLength;
+}
+
+console.log(longestSubstring("abcabcbb"));
+console.log(longestSubstring("bbbbb"));   
+console.log(longestSubstring("pwwkew"));  
 
 // Q2: Find sub array with the given sum (Done)
 
-const findSubarrayWithSum = (arr, target) => {
-    let currentSum = 0; 
-    let start = 0; 
+// const findSubarrayWithSum = (arr, target) => {
+//     let currentSum = 0; 
+//     let start = 0; 
     
-    for (let end = 0; end < arr.length; end++) {
-        currentSum += arr[end]; 
+//     for (let end = 0; end < arr.length; end++) {
+//         currentSum += arr[end]; 
 
-        while (currentSum > target && start <= end) {
-            currentSum -= arr[start]; 
-            start++;
-        }
+//         while (currentSum > target && start <= end) {
+//             currentSum -= arr[start]; 
+//             start++;
+//         }
         
-        if (currentSum === target) {
-            return arr.slice(start, end + 1); 
-        }
-    }
+//         if (currentSum === target) {
+//             return arr.slice(start, end + 1); 
+//         }
+//     }
     
-    return null; 
-}
+//     return null; 
+// }
 
-const arr = [1,3,20,10,4,5]
-const target = 33;
-console.log(findSubarrayWithSum(arr, target)); 
+// const arr = [1,3,20,10,4,5]
+// const target = 33;
+// console.log(findSubarrayWithSum(arr, target)); 
 
 // Q3: check string palandrom (Done)
 

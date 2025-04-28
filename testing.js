@@ -1,27 +1,20 @@
-const findSubarrayWithSum = (arr, target) => {
-    let currentSum = 0;   // To store the sum of the current window
-    let start = 0;         // Left pointer of the window
-    
-    for (let end = 0; end < arr.length; end++) {
-        currentSum += arr[end]; // Add the current element to the window
-        
-        // Shrink the window if the current sum exceeds the target
-        while (currentSum > target && start <= end) {
-            currentSum -= arr[start]; // Remove the element at `start` from the window
-            start++;
+let longestSubstring = (str) => {
+    let charMap = {}; 
+    let maxLength = 0;
+    let left = 0; 
+
+    for (let right = 0; right < str.length; right++) {
+        const currentChar = str[right];
+        if (charMap[currentChar] !== undefined && charMap[currentChar] >= left) {
+            left = charMap[currentChar] + 1; 
         }
-        
-        // If the current sum equals the target, return the subarray
-        if (currentSum === target) {
-            return arr.slice(start, end + 1); // Return the subarray
-        }
+        charMap[currentChar] = right; 
+        maxLength = Math.max(maxLength, right - left + 1); 
     }
-    
-    return null; // Return null if no subarray is found
+
+    return maxLength;
 }
 
-// const arr = [1, 4, 20, 3, 10, 5];
-// let sortedArr = arr.sort(((a, b)=>{return a-b}))
-const arr = [1,3,20,10,4,5]
-const target = 33;
-console.log(findSubarrayWithSum(arr, target));  // Output: [20, 3, 10]
+console.log(longestSubstring("abcabcbb"));
+console.log(longestSubstring("bbbbb"));   
+console.log(longestSubstring("pwwkew"));  
