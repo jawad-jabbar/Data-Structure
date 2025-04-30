@@ -1,25 +1,29 @@
-// Find longest substring without repeating characters.
+// Q1: Find longest substring without repeating characters.
 
-let longestSubstring = (str) => {
-    let charMap = {}; 
-    let maxLength = 0;
-    let left = 0; 
+// const longestSubstring = (arr) => {
+//     let longest = "";
+//     let newStr = 0;
+//     for (let left= 0 ; left<=arr.length; left++){
+//         let right = arr.length
+//         while(left<right){
+//             newStr = arr.substring(left,right)
+//             if(!hasRepeatedChars(newStr)){
+//                 if(longest.length<newStr.length){
+//                     longest = newStr
+//                 }
+//             }
+//             right--
+//         }
+//     }
+//     return longest
+// }
+// const hasRepeatedChars = (str) => {
+//     return new Set(str).size !== str.length;
+// }
 
-    for (let right = 0; right < str.length; right++) {
-        const currentChar = str[right];
-        if (charMap[currentChar] !== undefined && charMap[currentChar] >= left) {
-            left = charMap[currentChar] + 1; 
-        }
-        charMap[currentChar] = right; 
-        maxLength = Math.max(maxLength, right - left + 1); 
-    }
-
-    return maxLength;
-}
-
-console.log(longestSubstring("abcabcbb"));
-console.log(longestSubstring("bbbbb"));   
-console.log(longestSubstring("pwwkew"));  
+// console.log(longestSubstring("abcabcbb"));
+// console.log(longestSubstring("bbbbb"));   
+// console.log(longestSubstring("pwwkew")); 
 
 // Q2: Find sub array with the given sum (Done)
 
@@ -63,7 +67,39 @@ console.log(longestSubstring("pwwkew"));
 // isPalindrome("hello");
 // isPalindrome("noon")
 
-// Q4: Find longest palindrom substring.
+// Q4: Find longest palindrom substring. 
+
+const palindromeSubstring = (arr) => {
+    let longest = "";
+    let newStr = 0;
+    for (let left= 0 ; left<=arr.length; left++){
+        let right = arr.length
+        while(left<right){
+            newStr = arr.substring(left,right)
+            if(isPalindrome(newStr)){
+                if(longest.length<newStr.length){
+                    longest = newStr
+                }
+            }
+            right--
+        }
+    }
+    return longest
+}
+const isPalindrome = (str) => {
+    str = str.toLowerCase()
+    let reverseStr = str.split('').reverse().join('')
+    return str === reverseStr
+}
+
+// const str1 = 'abba'
+// const str1 = 'abcabcbb'
+// const str1 = 'bbbbb'
+// const str1 = 'aaabaaa'
+// const str1 = 'pwwkew'
+const palindromestr = palindromeSubstring(str1)
+console.log(palindromestr)
+
 
 
 // Q5: Merge two sorted array and sum their elements based on index. (Done)

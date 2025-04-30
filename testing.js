@@ -1,20 +1,43 @@
-let longestSubstring = (str) => {
-    let charMap = {}; 
-    let maxLength = 0;
-    let left = 0; 
-
-    for (let right = 0; right < str.length; right++) {
-        const currentChar = str[right];
-        if (charMap[currentChar] !== undefined && charMap[currentChar] >= left) {
-            left = charMap[currentChar] + 1; 
+const palindromeSubstring = (arr) => {
+  let longest = "";
+  let newStr = "";
+  for (let left = 0; left <= arr.length; left++) {
+    let right = arr.length;
+    while (left < right) {
+      newStr = arr.substring(left, right);
+      if (isPalindrome(newStr)) {
+        if (longest.length < newStr.length) {
+          longest = newStr;
         }
-        charMap[currentChar] = right; 
-        maxLength = Math.max(maxLength, right - left + 1); 
+      }
+      right--;
     }
+  }
+  return longest;
+};
 
-    return maxLength;
-}
+const isPalindrome = (str) => {
+  str = str.toLowerCase();
+  for (let i = 0; i < Math.ceil(str.length / 2); i++) {
+    if (str[i] === str[str.length - 1 - i]) {
+      return true;
+    }
+  }
+  return false;
+//   let reverseStr = str.split('').reverse().join('')
+//   return str === reverseStr
+};
 
-console.log(longestSubstring("abcabcbb"));
-console.log(longestSubstring("bbbbb"));   
-console.log(longestSubstring("pwwkew"));  
+// const str1 = 'abba'
+// const str1 = "abcabcbb";
+// const str1 = 'bbbbb'
+// const str1 = 'aaabaaa'
+const str1 = 'pwwkew'
+const palindromestr = palindromeSubstring(str1);
+console.log(palindromestr);
+
+// (EVEN)array.length = 10, (ODD)array.length = 7/5/9
+// loop over array.length/2;
+// comparison array[i] === array[length - 1 - i];
+// if matched boolean value will be true
+// else boolean value will be false
